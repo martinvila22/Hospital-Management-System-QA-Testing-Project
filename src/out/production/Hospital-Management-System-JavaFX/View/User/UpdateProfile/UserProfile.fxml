@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="464.0" prefWidth="807.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.User.UpdateProfile.UserProfileController">
+    <stylesheets>
+        <URL value="@userprofile.css" />
+    </stylesheets>
+   <children>
+      <Text layoutX="280.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Update Your Profile">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Text>
+      <TextField fx:id="name" layoutX="68.0" layoutY="152.0" promptText="Enter Your Name" />
+      <TextField fx:id="imgURL" layoutX="258.0" layoutY="152.0" promptText="Inter Your Image URL" />
+      <TextField fx:id="phoneNumber" layoutX="446.0" layoutY="152.0" promptText="Enter Your Phone Number" />
+      <Text layoutX="68.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" />
+      <Text layoutX="257.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Image URL(Optional)" />
+      <Text layoutX="448.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number(Optional)" />
+      <TextField fx:id="email" layoutX="641.0" layoutY="152.0" promptText="Enter Your Email Address" />
+      <Text layoutX="641.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+      <TextField fx:id="age" layoutX="258.0" layoutY="215.0" promptText="Enter Your Age" />
+      <Text layoutX="259.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Age" />
+      <Text layoutX="446.0" layoutY="207.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender" />
+      <Button layoutX="301.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleUpdateProfile" text="UPDATE PROFILE" />
+      <ComboBox fx:id="gender" layoutX="445.0" layoutY="215.0" prefWidth="150.0" promptText="Select Right One" />
+      <Button fx:id="applyAsDoctorattr" layoutX="432.0" layoutY="272.0" mnemonicParsing="false" onAction="#applyAsDoctor" text="Apply As Doctor" />
+   </children>
+</AnchorPane>

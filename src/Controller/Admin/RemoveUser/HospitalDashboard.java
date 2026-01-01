@@ -78,8 +78,8 @@ public class HospitalDashboard {
             GROUP BY d.DayOfMonth
             ORDER BY d.DayOfMonth;
         """;
-
-        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital-manament-system", "root", "");
+        String password = System.getenv("DB_PASSWORD");
+        try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/hospital-manament-system", "root", password);
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
