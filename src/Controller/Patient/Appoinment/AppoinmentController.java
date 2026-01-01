@@ -1,6 +1,6 @@
 package Controller.Patient.Appoinment;
 
-import Controller.Main;
+
 import Model.AppoinmentDoctorList;
 import Model.MYSQLDatabaseOp;
 import Model.User;
@@ -18,7 +18,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
-import Model.Doctor;
 
 public class AppoinmentController implements Initializable {
 
@@ -50,7 +49,7 @@ public class AppoinmentController implements Initializable {
     }
 
     @FXML
-    private void handleAppoinment(ActionEvent e) throws Exception {
+    private void handleAppoinment(ActionEvent e)  {
         AppoinmentDoctorList selectedDoctor = doctorTableView.getSelectionModel().getSelectedItem();
         if (selectedDoctor == null) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please select a doctor!", ButtonType.OK);
