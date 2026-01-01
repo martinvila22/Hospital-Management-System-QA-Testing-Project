@@ -53,10 +53,10 @@ public class BaseUIController implements Initializable {
     @FXML
     private void handleUpdateProfile(ActionEvent e) throws Exception {
 
-        if (ADMIN.equals(Main.role)) {
+        if (ADMIN.equals(Main.getRole())) {
             Parent register = FXMLLoader.load(getClass().getResource("/View/User/UpdateProfile/AdminProfile.fxml"));
             activeUI.getChildren().setAll(register);
-        } else if (DOCTOR.equals(Main.role)) {
+        } else if (DOCTOR.equals(Main.getRole())) {
             Parent register = FXMLLoader.load(getClass().getResource("/View/User/UpdateProfile/DoctorProfile.fxml"));
             activeUI.getChildren().setAll(register);
         } else {
@@ -90,7 +90,7 @@ public class BaseUIController implements Initializable {
     private void handleLogOut(ActionEvent event) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/View/Auth/Base.fxml"));
         Scene change = new Scene(root);
-        String role = Main.role;
+        String role = Main.getRole();
 
         //After logout reset all Data from software
         if (DOCTOR.equals(role)) {
@@ -111,10 +111,10 @@ public class BaseUIController implements Initializable {
     
 
     public void addFeature() throws Exception {
-        if (DOCTOR.equals(Main.role)) {
+        if (DOCTOR.equals(Main.getRole())) {
             Parent register = FXMLLoader.load(getClass().getResource("/View/Doctor/BaseFeature.fxml"));
             dynamicOption.getChildren().setAll(register);
-        } else if (ADMIN.equals(Main.role)) {
+        } else if (ADMIN.equals(Main.getRole())) {
             Parent register = FXMLLoader.load(getClass().getResource("/View/Admin/FXML.fxml"));
             dynamicOption.getChildren().setAll(register);
         }
@@ -132,7 +132,7 @@ public class BaseUIController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         activeUIRef = activeUI;
-        String result = (Main.imgURL != null && !"".equals(Main.imgURL)) ? Main.imgURL : "/View/images/person.png";
+        String result = (Main.getImgURL()!= null && !"".equals(Main.getImgURL())) ? Main.getImgURL(): "/View/images/person.png";
         setImage(result);
         try{
         if("".equals(User.getName()) || User.getName() == null || "".equals(User.getEmail()) || User.getEmail() == null ||"".equals(User.getAge()) || User.getAge() == null || "".equals(User.getGender()) || User.getGender() == null){

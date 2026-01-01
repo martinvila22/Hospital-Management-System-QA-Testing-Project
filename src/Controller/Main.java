@@ -15,9 +15,9 @@ import javafx.util.Duration;
 public class Main extends Application {
 
     private static Stage stageRef;
-    public static String role = "";
-    public static String imgURL = "";
-    public static String DoctorID = "";
+    private static String role = "";
+    private static String imgURL = "";
+    private static String DoctorID = "";
 
     File file = new File("confedintioal.data");
 
@@ -61,6 +61,13 @@ public class Main extends Application {
     }
 
     public static Stage getStageRef() {return stageRef;}
+    public static void setStageRef(Stage stageRef1) {stageRef = stageRef1;}
+    public static String getRole() {return role;}
+    public static void setRole(String role1) {role = role1;}
+    public static String getDoctorID() {return DoctorID;}
+    public static void setDoctorID(String doctorID1){DoctorID=doctorID1;}
+    public static String getImgURL() {return imgURL;}
+    public static void setImgURL(String imgURL1) {imgURL = imgURL1;}
 
     @Override
 
@@ -80,7 +87,6 @@ public class Main extends Application {
         autoLogin();
     }
 
-    public static void setDoctorID(String doctorId) {DoctorID = doctorId;}
 
     public static void main(String[] args) {
 

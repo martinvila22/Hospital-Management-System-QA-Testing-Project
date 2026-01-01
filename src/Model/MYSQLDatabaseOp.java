@@ -137,8 +137,8 @@ public class MYSQLDatabaseOp {
                         userData = new User(id, name, imageURL, userEmail, userPassword, phone, age, gender);
                     }
                     userDataFileUpdaste(userEmail,userPassword);
-                    Main.role = role;
-                    Main.imgURL = isValidURL(imageURL) ? imageURL : "/View/images/person.png";
+                    Main.setRole(role);
+                    Main.setImgURL( isValidURL(imageURL) ? imageURL : "/View/images/person.png");
                     Main.setDoctorID( doctorCode != null ? doctorCode : "");
                     //closing the window after successfully login
                     Parent root = FXMLLoader.load(getClass().getResource("/View/Patient/BaseUI.fxml"));
@@ -206,8 +206,8 @@ public class MYSQLDatabaseOp {
                 return;
             }
             User.Email=email;
-            Main.role = "user";
-            Main.imgURL="/View/images/person.png";
+            Main.setRole("user");
+            Main.setImgURL( "/View/images/person.png");
             insertStatement.setString(1, email);
             insertStatement.setString(2, password);
             int rowsInserted = insertStatement.executeUpdate();
@@ -219,7 +219,7 @@ public class MYSQLDatabaseOp {
                 int userId = keys.getInt(1);
                 User.ID = userId;
             }
-                Main.role = "user";
+                Main.setRole("user");
                 Parent root = FXMLLoader.load(getClass().getResource("/View/Patient/BaseUI.fxml"));
                 Scene change = new Scene(root);
                 Main.getStageRef().setScene(change);
