@@ -4,15 +4,14 @@
  */
 package Controller.Doctor.GivePrescription;
 
-import Model.Doctor;
+import Model.*;
+
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableView;
-import Model.GivePrescription;
-import Model.MYSQLDatabaseOp;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.Alert;
@@ -20,7 +19,6 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.cell.PropertyValueFactory;
-import Model.MYSQLDatabaseOp;
 
 /**
  * FXML Controller class
@@ -64,7 +62,7 @@ public class GivePrescriptionController implements Initializable {
         MYSQLDatabaseOp database = new MYSQLDatabaseOp();
         boolean response = database.givePrescription(selectPatient.getAppointmentID(), getPrescription);
         if (response) {
-            getAllAppoinment = database.handleAllAppoinmentForDoctor(Doctor.getID());
+            getAllAppoinment = database.handleAllAppoinmentForDoctor(User.getID());
             appoinmentPatientList.setItems(getAllAppoinment);
             prescription.setText("");
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Prescrition submitted successfully!", ButtonType.OK);
@@ -90,7 +88,7 @@ public class GivePrescriptionController implements Initializable {
         problem.setCellValueFactory(new PropertyValueFactory<>("Prolblem"));
         MYSQLDatabaseOp database = new MYSQLDatabaseOp();
         try {
-            getAllAppoinment = database.handleAllAppoinmentForDoctor(Doctor.getID());
+            getAllAppoinment = database.handleAllAppoinmentForDoctor(User.getID());
             appoinmentPatientList.setItems(getAllAppoinment);
         } catch (Exception e) {
             System.out.println(e);
