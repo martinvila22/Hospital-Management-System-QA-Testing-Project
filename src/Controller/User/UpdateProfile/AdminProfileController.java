@@ -37,7 +37,6 @@ public class AdminProfileController implements Initializable {
         String updateName = name.getText();
         String updateImgURL = imgURL.getText();
         String updatePhoneNumber = phoneNumber.getText();
-        String updateGmail = email.getText();
         String updateAge = age.getText();
         String getGender = gender.getValue();
         String updateAddress = address.getText();
@@ -90,10 +89,10 @@ public class AdminProfileController implements Initializable {
             return false;
         }
 
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@"
-                + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
+        String emailRegex ="^[A-Za-z0-9_+&*-]+(\\.[A-Za-z0-9_+&*-]+)?@" +
+                "[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
-        if (updateGmail == null || !pattern.matcher(updateGmail).matches()) {
+        if (updateGmail.isBlank() || !pattern.matcher(updateGmail).matches()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide a valid email!", ButtonType.OK);
             alert.show();
             return false;
@@ -107,17 +106,13 @@ public class AdminProfileController implements Initializable {
 
         //For set User can input only number
         age.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                if (!newValue.matches("\\d*")) {
+            if (newValue != null && !newValue.matches("\\d*")) {
                     age.setText(newValue.replaceAll("[^\\d]", ""));
-                }
             }
         });
         phoneNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                if (!newValue.matches("\\d*")) {
+            if (newValue != null && !newValue.matches("\\d*")) {
                     phoneNumber.setText(newValue.replaceAll("[^\\d]", ""));
-                }
             }
         });
         name.setText(Admin.getName());
