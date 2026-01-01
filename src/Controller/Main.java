@@ -78,6 +78,8 @@ public class Main extends Application {
         autoLogin();
     }
 
+    public static void setDoctorID(String DoctorId) {DoctorID = DoctorId;}
+
     public static void main(String[] args) {
 
         launch(args);

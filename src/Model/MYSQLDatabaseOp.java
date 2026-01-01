@@ -139,7 +139,7 @@ public class MYSQLDatabaseOp {
                     userDataFileUpdaste(userEmail,userPassword);
                     Main.role = role;
                     Main.imgURL = isValidURL(imageURL) ? imageURL : "/View/images/person.png";
-                    Main.DoctorID = doctorCode != null ? doctorCode : "";
+                    Main.setDoctorID( doctorCode != null ? doctorCode : "");
                     //closing the window after successfully login
                     Parent root = FXMLLoader.load(getClass().getResource("/View/Patient/BaseUI.fxml"));
                     Scene change = new Scene(root);

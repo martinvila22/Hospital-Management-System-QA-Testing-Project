@@ -54,7 +54,7 @@ public class ApplyAsDoctorController implements Initializable {
         MYSQLDatabaseOp database = new MYSQLDatabaseOp();
         boolean flag = database.handleApplyAsDoctor(User.getID(), specializationText, doctorIDText);
         if (flag) {
-            Main.DoctorID=doctorIDText;
+            Main.setDoctorID(doctorIDText);
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Applied Successfully!", ButtonType.OK);
             Parent forword = FXMLLoader.load(getClass().getResource("/View/Patient/Appoinment/Appoinment.fxml"));
             BaseUIController.activeUIRef.getChildren().setAll(forword);
@@ -70,10 +70,8 @@ public class ApplyAsDoctorController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         doctorID.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                if (!newValue.matches("\\d*")) {
+            if (newValue != null && !newValue.matches("\\d*")) {
                     doctorID.setText(newValue.replaceAll("[^\\d]", ""));
-                }
             }
         });
         specialization.setItems(FXCollections.observableArrayList("Cardiologist", "Neurologist", "Dermatologist"));
