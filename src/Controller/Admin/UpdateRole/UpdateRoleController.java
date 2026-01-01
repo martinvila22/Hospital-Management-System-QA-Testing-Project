@@ -43,7 +43,7 @@ public class UpdateRoleController implements Initializable {
             boolean updateFlag = database.handleUpdateRole(Integer.parseInt(id), "doctor");
             boolean addDoctorFlag = database.addNewDoctor(Integer.parseInt(id), Integer.parseInt(specializationId), doctorCode);
             boolean deleteFlag = database.deleteNewDoctorApplication(Integer.parseInt(id));
-            if (updateFlag == true && addDoctorFlag == true && deleteFlag == true) {
+            if (updateFlag  && addDoctorFlag  && deleteFlag) {
                 loadUser();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Aproved Sucessfully", ButtonType.OK);
                 alert.show();
@@ -65,12 +65,12 @@ public class UpdateRoleController implements Initializable {
             alert.show();
             return;
         }
-        String id = selectAproveDoctor.getId();
+        String id1 = selectAproveDoctor.getId();
         try {
             MYSQLDatabaseOp database = new MYSQLDatabaseOp();
-            boolean updateFlag = database.handleUpdateRole(Integer.parseInt(id), "user");
-            boolean deleteFlag = database.deleteNewDoctorApplication(Integer.parseInt(id));
-            if (updateFlag == true && deleteFlag == true) {
+            boolean updateFlag = database.handleUpdateRole(Integer.parseInt(id1), "user");
+            boolean deleteFlag = database.deleteNewDoctorApplication(Integer.parseInt(id1));
+            if (updateFlag && deleteFlag) {
                 loadUser();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Declined Sucessfully", ButtonType.OK);
                 alert.show();
