@@ -85,12 +85,12 @@ public class DoctorProfileController implements Initializable {
             return false;
         }
 
-        if ("".equals(updateName) || updateName == null) {
+        if ("".equals(updateName) || updateGmail.isBlank()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide your Name!", ButtonType.OK);
             alert.show();
             return false;
         }
-        if ("".equals(updateName) || updateName == null) {
+        if ("".equals(updateName) || updateGmail.isBlank()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide your Name!", ButtonType.OK);
             alert.show();
             return false;
@@ -114,7 +114,7 @@ public class DoctorProfileController implements Initializable {
         String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@"
                 + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
-        if (updateGmail == null || !pattern.matcher(updateGmail).matches()) {
+        if (updateGmail.isBlank() || !pattern.matcher(updateGmail).matches()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide a valid email!", ButtonType.OK);
             alert.show();
             return false;
@@ -130,17 +130,13 @@ public class DoctorProfileController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         //For set User can input only number
         age.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                if (!newValue.matches("\\d*")) {
+            if (newValue != null && !newValue.matches("\\d*")) {
                     age.setText(newValue.replaceAll("[^\\d]", ""));
-                }
             }
         });
         phoneNumber.textProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue != null) {
-                if (!newValue.matches("\\d*")) {
+            if (newValue != null && !newValue.matches("\\d*")) {
                     phoneNumber.setText(newValue.replaceAll("[^\\d]", ""));
-                }
             }
         });
         name.setText(Doctor.getName());
