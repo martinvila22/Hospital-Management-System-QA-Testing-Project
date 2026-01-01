@@ -5,7 +5,6 @@
 package Controller.Patient.Prescriptions;
 
 import Model.AllPrescription;
-import Model.AppoinmentDoctorList;
 import Model.MYSQLDatabaseOp;
 import Model.User;
 import java.net.URL;
@@ -29,11 +28,11 @@ public class PrescriptionController implements Initializable {
 
 
 @FXML
-private TableView<AllPrescription> AllPrescriptionTable;
+private TableView<AllPrescription> allPrescriptionTable;
 @FXML
 private TableColumn<AllPrescription, String> doctorName;
 @FXML
-private TableColumn<AllPrescription, String> DoctorID;
+private TableColumn<AllPrescription, String> doctorID;
 @FXML
 private TableColumn<AllPrescription, String> yourProblem;
 @FXML
@@ -47,7 +46,7 @@ private TableColumn<AllPrescription, String> doctorPrescription;
         // TODO
                 // Configure the TableColumn bindings to properties of AllPrescription class
         doctorName.setCellValueFactory(new PropertyValueFactory<>("doctorName"));
-        DoctorID.setCellValueFactory(new PropertyValueFactory<>("doctorID"));
+        doctorID.setCellValueFactory(new PropertyValueFactory<>("doctorID"));
         yourProblem.setCellValueFactory(new PropertyValueFactory<>("problem"));
         doctorPrescription.setCellValueFactory(new PropertyValueFactory<>("prescription"));
         
@@ -56,7 +55,7 @@ private TableColumn<AllPrescription, String> doctorPrescription;
         MYSQLDatabaseOp database = new MYSQLDatabaseOp();
     try {
         ObservableList<AllPrescription> prescriptions = database.prescriptions(User.getID());
-        AllPrescriptionTable.setItems(prescriptions);
+        allPrescriptionTable.setItems(prescriptions);
     } catch (SQLException ex) {
         Logger.getLogger(PrescriptionController.class.getName()).log(Level.SEVERE, null, ex);
     }
