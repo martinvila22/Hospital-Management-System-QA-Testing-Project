@@ -100,7 +100,7 @@ public class BaseUIController implements Initializable {
         } else {
             User.resetUser();
         }
-        Main.stageRef.setScene(change);
+        Main.getStageRef().setScene(change);
         try (FileWriter writer = new FileWriter("confedintioal.data")) {
             writer.write("");
         } catch (IOException e) {

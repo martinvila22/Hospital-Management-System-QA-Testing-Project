@@ -14,7 +14,7 @@ import javafx.util.Duration;
 
 public class Main extends Application {
 
-    public static Stage stageRef;
+    private static Stage stageRef;
     public static String role = "";
     public static String imgURL = "";
     public static String DoctorID = "";
@@ -60,6 +60,8 @@ public class Main extends Application {
         }
     }
 
+    public static Stage getStageRef() {return stageRef;}
+
     @Override
 
     //database testing
@@ -78,7 +80,7 @@ public class Main extends Application {
         autoLogin();
     }
 
-    public static void setDoctorID(String DoctorId) {DoctorID = DoctorId;}
+    public static void setDoctorID(String doctorId) {DoctorID = doctorId;}
 
     public static void main(String[] args) {
 
