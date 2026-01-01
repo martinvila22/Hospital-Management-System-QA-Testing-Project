@@ -89,7 +89,8 @@ public class AdminProfileController implements Initializable {
             return false;
         }
 
-        String emailRegex ="^[A-Za-z0-9_+&*-]+(\\.[A-Za-z0-9_+&*-]+)?@" + "[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,7}$";
+        String emailRegex ="^[A-Za-z0-9_+&*-]+(?:\\.[A-Za-z0-9_+&*-]+)?@" +
+                "[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,7}$";
         Pattern pattern = Pattern.compile(emailRegex);
         if (updateGmail.isBlank() || !pattern.matcher(updateGmail).matches()) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide a valid email!", ButtonType.OK);

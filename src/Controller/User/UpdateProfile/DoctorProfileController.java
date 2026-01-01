@@ -4,11 +4,12 @@
  */
 package Controller.User.UpdateProfile;
 
-import Model.Admin;
 import Model.MYSQLDatabaseOp;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
+
+import Model.User;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -42,19 +43,20 @@ public class DoctorProfileController implements Initializable {
     @FXML
     private ComboBox<String> gender;
 
+    private static final  String NAME_REQUEST="Please provide your Name!";
+
     @FXML
     private void handleUpdateProfile(ActionEvent e) throws Exception {
         String updateName = name.getText();
         String updateImgURL = imgURL.getText();
         String updatePhoneNumber = phoneNumber.getText();
-        String updateGmail = email.getText();
         String updateAge = age.getText();
         String getGender = gender.getValue();
         String updateAddress = address.getText();
         if (updateValidation()) {
 
             MYSQLDatabaseOp updateUserData = new MYSQLDatabaseOp();
-            if (updateUserData.handleUpdateUserData(Doctor.getID(), updateName, updateImgURL, updateAge, getGender, updateAddress, updatePhoneNumber)) {
+            if (updateUserData.handleUpdateUserData(User.getID(), updateName, updateImgURL, updateAge, getGender, updateAddress, updatePhoneNumber)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Your profile Updated Successfully!", ButtonType.OK);
                 alert.show();
             }
@@ -70,7 +72,7 @@ public class DoctorProfileController implements Initializable {
         String updateAddress = address.getText();
 
         if ("".equals(updateName) || updateName == null) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide your Name!", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.WARNING,NAME_REQUEST, ButtonType.OK);
             alert.show();
             return false;
         }
@@ -85,13 +87,13 @@ public class DoctorProfileController implements Initializable {
             return false;
         }
 
-        if ("".equals(updateName) || updateGmail.isBlank()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide your Name!", ButtonType.OK);
+        if ("".equals(updateName) ) {
+            Alert alert = new Alert(Alert.AlertType.WARNING,NAME_REQUEST, ButtonType.OK);
             alert.show();
             return false;
         }
         if ("".equals(updateName) || updateGmail.isBlank()) {
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide your Name!", ButtonType.OK);
+            Alert alert = new Alert(Alert.AlertType.WARNING,NAME_REQUEST, ButtonType.OK);
             alert.show();
             return false;
         }
@@ -100,7 +102,7 @@ public class DoctorProfileController implements Initializable {
             alert.show();
             return false;
         }
-        if ("".equals(updateGmail) || updateGmail == null) {
+        if ("".equals(updateGmail) ) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide your Email!", ButtonType.OK);
             alert.show();
             return false;
@@ -139,16 +141,16 @@ public class DoctorProfileController implements Initializable {
                     phoneNumber.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
-        name.setText(Doctor.getName());
-        imgURL.setText(Doctor.getImageURL());
-        phoneNumber.setText(Doctor.getPhone());
-        email.setText(Doctor.getEmail());
-        age.setText(Doctor.getAge());
+        name.setText(User.getName());
+        imgURL.setText(User.getImageURL());
+        phoneNumber.setText(User.getPhone());
+        email.setText(User.getEmail());
+        age.setText(User.getAge());
         address.setText(Doctor.getAddress());
 
         gender.setItems(FXCollections.observableArrayList("Male", "Female", "Other"));
-        if ("Male".equals(Doctor.getGender()) || "Female".equals(Doctor.getGender()) || "Other".equals(Doctor.getGender())) {
-            gender.setValue(Doctor.getGender());
+        if ("Male".equals(User.getGender()) || "Female".equals(User.getGender()) || "Other".equals(User.getGender())) {
+            gender.setValue(User.getGender());
         }
 
     }
