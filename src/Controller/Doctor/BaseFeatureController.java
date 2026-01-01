@@ -23,18 +23,18 @@ public class BaseFeatureController extends UIComponents implements Initializable
 @Override
 void handleSceneAllPatients(ActionEvent e)throws Exception{
 Parent updateRoleDoctor = FXMLLoader.load(getClass().getResource("/View/Doctor/AllPatient/AllPatient.fxml"));
-BaseUIController.ActiveUIRef.getChildren().setAll(updateRoleDoctor);
+BaseUIController.activeUIRef.getChildren().setAll(updateRoleDoctor);
 }
 @FXML
 private void handleSceneAllAppoinment(ActionEvent e)throws Exception{
 Parent updateRoleDoctor = FXMLLoader.load(getClass().getResource("/View/Doctor/Appoinment/AllApoinment.fxml"));
-BaseUIController.ActiveUIRef.getChildren().setAll(updateRoleDoctor);
+BaseUIController.activeUIRef.getChildren().setAll(updateRoleDoctor);
 }
 @FXML
 @Override
 void handleSceneAllPrescription(ActionEvent e)throws Exception{
 Parent updateRoleDoctor = FXMLLoader.load(getClass().getResource("/View/Doctor/GivePrescription/GivePrescription.fxml"));
-BaseUIController.ActiveUIRef.getChildren().setAll(updateRoleDoctor);
+BaseUIController.activeUIRef.getChildren().setAll(updateRoleDoctor);
 }
     /**
      * Initializes the controller class.

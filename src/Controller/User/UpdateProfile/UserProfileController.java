@@ -74,7 +74,7 @@ public class UserProfileController implements Initializable {
     @FXML
     private void applyAsDoctor() throws Exception {
         Parent register = FXMLLoader.load(getClass().getResource("/View/User/ApplyAsDoctor/ApplyAsDoctor.fxml"));
-        BaseUIController.ActiveUIRef.getChildren().setAll(register);
+        BaseUIController.activeUIRef.getChildren().setAll(register);
     }
 
     /**
