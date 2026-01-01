@@ -62,4 +62,5 @@ public class LoginController implements Initializable {
         // TODO
         setTextOther = setText;
     }
+    
 }

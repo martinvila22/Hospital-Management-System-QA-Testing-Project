@@ -35,14 +35,14 @@ public class UpdateRoleController implements Initializable {
             alert.show();
             return;
         }
-        String id = selectAproveDoctor.getId();
+        String id1 = selectAproveDoctor.getId();
         String specializationId = selectAproveDoctor.getSpecializationId();
         String doctorCode = selectAproveDoctor.getDoctorCode();
         try {
             MYSQLDatabaseOp database = new MYSQLDatabaseOp();
-            boolean updateFlag = database.handleUpdateRole(Integer.parseInt(id), "doctor");
-            boolean addDoctorFlag = database.addNewDoctor(Integer.parseInt(id), Integer.parseInt(specializationId), doctorCode);
-            boolean deleteFlag = database.deleteNewDoctorApplication(Integer.parseInt(id));
+            boolean updateFlag = database.handleUpdateRole(Integer.parseInt(id1), "doctor");
+            boolean addDoctorFlag = database.addNewDoctor(Integer.parseInt(id1), Integer.parseInt(specializationId), doctorCode);
+            boolean deleteFlag = database.deleteNewDoctorApplication(Integer.parseInt(id1));
             if (updateFlag  && addDoctorFlag  && deleteFlag) {
                 loadUser();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Aproved Sucessfully", ButtonType.OK);

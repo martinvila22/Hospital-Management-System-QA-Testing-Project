@@ -53,7 +53,7 @@ public class RegisterController implements Initializable {
 
         if (isValidEmail(email)) {
 
-            //System.out.println("SELECT * FROM users where email='"+email+"' AND Password='"+pass+"'");
+
             MYSQLDatabaseOp dbOp = new MYSQLDatabaseOp();
             dbOp.handleRegister(email, pass);
         } else {
@@ -61,17 +61,20 @@ public class RegisterController implements Initializable {
         }
     }
 
-    public boolean isValidEmail(String email) {
-        // Define the regex pattern for email validation
-        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@"
-                + "(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 
-        // Compile the regex into a pattern
-        Pattern pattern = Pattern.compile(emailRegex);
 
-        // Check if the email matches the pattern
-        return email != null && pattern.matcher(email).matches();
-    }
+
+
+        private static final Pattern EMAIL_PATTERN = Pattern.compile(
+                "^[A-Za-z0-9_+&*-]+(?:\\.[A-Za-z0-9_+&*-]+)?@" +
+                        "[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,7}$"
+        );
+
+        public static boolean isValidEmail(String email) {
+            return email != null && EMAIL_PATTERN.matcher(email).matches();
+        }
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
