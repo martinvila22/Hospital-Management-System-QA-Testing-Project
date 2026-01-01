@@ -5,13 +5,14 @@
 package Controller.Doctor.AllPatient;
 
 import Model.AllPatientForDoctor;
-import Model.Doctor;
+
 import Model.MYSQLDatabaseOp;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
+
+import Model.User;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
@@ -56,7 +57,7 @@ private TableColumn<AllPatientForDoctor, String> prescription;
         
         try{
             MYSQLDatabaseOp database = new MYSQLDatabaseOp();
-            ObservableList<AllPatientForDoctor> allPatients = database.allPatient(Doctor.getID());
+            ObservableList<AllPatientForDoctor> allPatients = database.allPatient(User.getID());
             allPatientTable.setItems(allPatients);
         }catch(SQLException ee){
             System.out.println(ee);
