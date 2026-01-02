@@ -8,8 +8,11 @@ import Controller.Main;
 import Model.Admin;
 import Model.Doctor;
 import Model.User;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,9 +25,6 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 /**
  * FXML Controller class
@@ -101,7 +101,7 @@ public class BaseUIController implements Initializable {
         } else {
             User.resetUser();
         }
-        Main.getPrimaryStage().setScene(change);
+        Main.getStageRef.setScene(change);
         try {
             Files.write(
                     Path.of("confedintioal.data"),

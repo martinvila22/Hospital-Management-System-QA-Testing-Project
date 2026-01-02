@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 import javafx.application.Application;
+import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -18,14 +19,12 @@ import java.nio.charset.StandardCharsets;
 public class Main extends Application {
 
 
-    private Stage stage;
+    private static Stage stage;
     private static String role = "";
     private static String imgURL = "";
     private static String doctorID = "";
 
     File file = new File("confedintioal.data");
-
-
 
     private void handleLoginAutomatically() throws Exception {
         try (Scanner scanner = new Scanner(file, StandardCharsets.UTF_8)) {
