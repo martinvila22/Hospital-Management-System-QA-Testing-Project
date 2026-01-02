@@ -102,7 +102,7 @@ public class BaseUIController implements Initializable {
         } else {
             User.resetUser();
         }
-        Main.getStageRef().setScene(change);
+        Main.getPrimaryStage().setScene(change);
         try {
             Files.write(
                     Path.of("confedintioal.data"),
