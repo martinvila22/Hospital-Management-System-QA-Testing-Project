@@ -37,8 +37,7 @@ public class BaseUIController implements Initializable {
     @FXML
     private ImageView image;
     @FXML
-    private AnchorPane activeUI;
-    public static AnchorPane activeUIRef;
+    private static AnchorPane activeUI;
     @FXML
     private AnchorPane dynamicOption;
     private  static final String DOCTOR="doctor";
@@ -125,13 +124,14 @@ public class BaseUIController implements Initializable {
         activeUI.getChildren().setAll(register);
     }
 
-
-        
-    
+    public  static void setActiveContent(Parent content) {
+        activeUI.getChildren().setAll(content);
+    }
+    public static AnchorPane getActiveUI() {return activeUI;}
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        activeUIRef = activeUI;
+        setActiveContent(activeUI);
         String result = (Main.getImgURL()!= null && !"".equals(Main.getImgURL())) ? Main.getImgURL(): "/View/images/person.png";
         setImage(result);
         try{

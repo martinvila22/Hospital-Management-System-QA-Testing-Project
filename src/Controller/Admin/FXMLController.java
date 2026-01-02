@@ -22,13 +22,13 @@ public class FXMLController implements Initializable {
 @FXML
 private void changeSceneUpdateRole(ActionEvent e)throws Exception{
     Parent updateRoleAdmin = FXMLLoader.load(getClass().getResource("/View/Admin/UpdateRole/UpdateRole.fxml"));
-    BaseUIController.activeUIRef.getChildren().setAll(updateRoleAdmin);
+    BaseUIController.getActiveUI().getChildren().setAll(updateRoleAdmin);
 }
 
 @FXML
 private void handleRmoveUser(ActionEvent e)throws Exception{
     Parent updateRoleAdmin = FXMLLoader.load(getClass().getResource("/View/Admin/RemoveUser/RemoveUser.fxml"));
-    BaseUIController.activeUIRef.getChildren().setAll(updateRoleAdmin);
+    BaseUIController.getActiveUI().getChildren().setAll(updateRoleAdmin);
 }
     /**
      * Initializes the controller class.

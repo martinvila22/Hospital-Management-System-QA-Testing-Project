@@ -57,7 +57,7 @@ public class ApplyAsDoctorController implements Initializable {
             Main.setDoctorID(doctorIDText);
             Alert alert = new Alert(Alert.AlertType.INFORMATION, "Applied Successfully!", ButtonType.OK);
             Parent forword = FXMLLoader.load(getClass().getResource("/View/Patient/Appoinment/Appoinment.fxml"));
-            BaseUIController.activeUIRef.getChildren().setAll(forword);
+            BaseUIController.getActiveUI().getChildren().setAll(forword);
             alert.show();
         } else {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Database Error!", ButtonType.OK);
