@@ -23,6 +23,9 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 /**
  * FXML Controller class
@@ -100,12 +103,16 @@ public class BaseUIController implements Initializable {
             User.resetUser();
         }
         Main.getStageRef().setScene(change);
-        try (FileWriter writer = new FileWriter("confedintioal.data")) {
-            writer.write("");
+        try {
+            Files.write(
+                    Path.of("confedintioal.data"),
+                    "".getBytes(StandardCharsets.UTF_8)
+            );
         } catch (IOException e) {
-            System.out.println("An error occurred while writing to the file.");
+            System.err.println("Failed to clear file");
             e.printStackTrace();
         }
+
     }
     
 
