@@ -26,9 +26,8 @@ public class LoginController implements Initializable {
     private TextField passField;
 
     @FXML
-    private Label setText;
+    private static Label setText;
 
-    public static Label setTextOther;
 
     @FXML
     private void handleRegister() throws Exception {
@@ -54,13 +53,17 @@ public class LoginController implements Initializable {
         setText.setText("");
     }
 
+    public static void showMessage(String message) {
+        setText.setText(message);
+    }
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        setTextOther = setText;
+       showMessage(setText.getText());
     }
     
 }

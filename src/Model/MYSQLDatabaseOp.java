@@ -145,12 +145,12 @@ public class MYSQLDatabaseOp {
                     Scene change = new Scene(root);
                     Main.getStageRef().setScene(change);
                 } else {
-                    LoginController.setTextOther.setText("Wrong Email or Password");
+                    LoginController.showMessage(("Wrong Email or Password"));
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            LoginController.setTextOther.setText("Login Faild! Server Error!");
+            LoginController.showMessage(("Login Faild! Server Error!"));
             throw new Exception("Error occurred during login: " + e.getMessage());
         }
     }
@@ -176,13 +176,13 @@ public class MYSQLDatabaseOp {
 
             if (doctorList.isEmpty()) {
                 Platform.runLater(() -> {
-                    LoginController.setTextOther.setText("Error!! No matching doctor found.");
+                    LoginController.showMessage(("Error!! No matching doctor found."));
                 });
             }
         } catch (SQLException e) {
             e.printStackTrace();
             Platform.runLater(() -> {
-                LoginController.setTextOther.setText("Login Failed! Server Error!");
+                LoginController.showMessage(("Login Failed! Server Error!"));
             });
             throw new SQLException("Error occurred while fetching doctors: " + e.getMessage(), e);
         }

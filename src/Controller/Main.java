@@ -17,7 +17,7 @@ public class Main extends Application {
     private static Stage stageRef;
     private static String role = "";
     private static String imgURL = "";
-    private static String DoctorID = "";
+    private static String doctorID = "";
 
     File file = new File("confedintioal.data");
 
@@ -64,8 +64,9 @@ public class Main extends Application {
     public static void setStageRef(Stage stageRef1) {stageRef = stageRef1;}
     public static String getRole() {return role;}
     public static void setRole(String role1) {role = role1;}
-    public static String getDoctorID() {return DoctorID;}
-    public static void setDoctorID(String doctorID1){DoctorID=doctorID1;}
+    public static String getDoctorID() {return doctorID;}
+    public static void setDoctorID(String doctorID1){
+        doctorID =doctorID1;}
     public static String getImgURL() {return imgURL;}
     public static void setImgURL(String imgURL1) {imgURL = imgURL1;}
 
