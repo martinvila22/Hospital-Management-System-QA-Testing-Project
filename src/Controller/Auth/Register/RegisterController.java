@@ -23,8 +23,8 @@ import javafx.scene.control.TextField;
 public class RegisterController implements Initializable {
 
     @FXML
-    private Label faildmsg;
-    public static Label faildmsgSet;
+    private static Label faildmsg;
+
     @FXML
     private TextField emailField;
     @FXML
@@ -74,11 +74,15 @@ public class RegisterController implements Initializable {
             return email != null && EMAIL_PATTERN.matcher(email).matches();
         }
 
+    public static void showError(String message) {
+        faildmsg.setText(message);
+    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        faildmsgSet = faildmsg;
+        showError(faildmsg.getText());
         // TODO
     }
 

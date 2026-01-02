@@ -202,7 +202,7 @@ public class MYSQLDatabaseOp {
             ResultSet resultSet = checkStatement.executeQuery();
 
             if (resultSet.next() && resultSet.getInt(1) > 0) {
-                RegisterController.faildmsgSet.setText("Email already exists.");
+                RegisterController.showError("Email already exists.");
                 return;
             }
             User.Email=email;
@@ -225,11 +225,11 @@ public class MYSQLDatabaseOp {
                 Main.getStageRef().setScene(change);
                 userDataFileUpdaste(email,password);
             } else {
-                RegisterController.faildmsgSet.setText("Registration Fainld!");
+                RegisterController.showError("Registration Fainld!");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            RegisterController.faildmsgSet.setText("Registration Faild! Server Error!");
+            RegisterController.showError("Registration Faild! Server Error!");
             throw new Exception("Error occurred during registration: " + e.getMessage());
         }
     }
