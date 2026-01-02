@@ -80,7 +80,7 @@ public class GivePrescriptionController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
         patientName.setCellValueFactory(new PropertyValueFactory<>("PatientName"));
         gender.setCellValueFactory(new PropertyValueFactory<>("Gender"));
         age.setCellValueFactory(new PropertyValueFactory<>("Age"));

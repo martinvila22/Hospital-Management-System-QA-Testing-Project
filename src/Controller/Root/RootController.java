@@ -25,7 +25,7 @@ public class RootController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // TO be completed
     }    
     
 }

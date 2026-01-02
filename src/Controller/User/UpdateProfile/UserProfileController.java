@@ -4,7 +4,6 @@
  */
 package Controller.User.UpdateProfile;
 
-import Controller.Main;
 import Controller.Patient.BaseUIController;
 import Model.MYSQLDatabaseOp;
 import java.net.URL;

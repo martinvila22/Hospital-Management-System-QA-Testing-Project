@@ -43,7 +43,6 @@ private TableColumn<AllPrescription, String> doctorPrescription;
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
                 // Configure the TableColumn bindings to properties of AllPrescription class
         doctorName.setCellValueFactory(new PropertyValueFactory<>("doctorName"));
         doctorID.setCellValueFactory(new PropertyValueFactory<>("doctorID"));

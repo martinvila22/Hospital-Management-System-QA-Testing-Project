@@ -8,7 +8,6 @@ import Controller.Main;
 import Model.Admin;
 import Model.Doctor;
 import Model.User;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -116,7 +116,6 @@ public class UpdateRoleController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         name.setCellValueFactory(new PropertyValueFactory<>("name"));
         id.setCellValueFactory(new PropertyValueFactory<>("id"));
         email.setCellValueFactory(new PropertyValueFactory<>("email"));

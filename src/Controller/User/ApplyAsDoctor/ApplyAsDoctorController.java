@@ -68,7 +68,6 @@ public class ApplyAsDoctorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
         doctorID.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null && !newValue.matches("\\d*")) {
                     doctorID.setText(newValue.replaceAll("[^\\d]", ""));

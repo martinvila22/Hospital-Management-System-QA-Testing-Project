@@ -2,6 +2,8 @@ package Controller.User.UpdateProfile;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+
+import Model.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -44,7 +46,7 @@ public class AdminProfileController implements Initializable {
         if (updateValidation()) {
 
             MYSQLDatabaseOp updateUserData = new MYSQLDatabaseOp();
-            if (updateUserData.handleUpdateUserData(Admin.getID(), updateName,updateImgURL, updateAge, getGender, updateAddress, updatePhoneNumber)) {
+            if (updateUserData.handleUpdateUserData(User.getID(), updateName,updateImgURL, updateAge, getGender, updateAddress, updatePhoneNumber)) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION, "Your profile Updated Successfully!", ButtonType.OK);
                 alert.show();
             }

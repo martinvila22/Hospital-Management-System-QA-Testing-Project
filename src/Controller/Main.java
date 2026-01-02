@@ -3,7 +3,7 @@ package Controller;
 import Model.MYSQLDatabaseOp;
 import java.io.File;
 import java.nio.file.Files;
-import java.nio.file.OpenOption;
+import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +17,7 @@ import java.nio.charset.StandardCharsets;
 
 public class Main extends Application {
 
-    private static Main instance;
+
     private Stage stage;
     private static String role = "";
     private static String imgURL = "";
@@ -52,7 +52,13 @@ public class Main extends Application {
     private void autoLogin() {
         try {
             if (!file.exists()) {
-                Files.write(file.toPath(), new byte[0], (OpenOption) StandardCharsets.UTF_8);
+                Files.write(
+                        file.toPath(),
+                        new byte[0],
+                        StandardOpenOption.CREATE,
+                        StandardOpenOption.TRUNCATE_EXISTING
+                );
+
             }
 
             PauseTransition pause = new PauseTransition(Duration.millis(1));
@@ -71,8 +77,8 @@ public class Main extends Application {
     }
 
 
-    public static Stage getPrimaryStage() {
-        return instance.stage;
+    public  Stage getPrimaryStage() {
+        return this.stage;
     }
     public static String getRole() {return role;}
     public static void setRole(String role1) {role = role1;}
@@ -86,7 +92,6 @@ public class Main extends Application {
 
     //database testing
     public void start(Stage primaryStage) throws Exception {
-        instance = this;
         this.stage = primaryStage;
 
         Parent root = FXMLLoader.load(getClass().getResource("/View/Auth/Base.fxml"));

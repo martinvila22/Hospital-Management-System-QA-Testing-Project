@@ -35,7 +35,7 @@ private void handleRmoveUser(ActionEvent e)throws Exception{
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+//       need to implement
     }    
     
 }

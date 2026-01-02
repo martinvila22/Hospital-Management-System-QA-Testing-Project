@@ -41,7 +41,7 @@ BaseUIController.getActiveUI().getChildren().setAll(updateRoleDoctor);
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // to be completed
     }    
     
 }

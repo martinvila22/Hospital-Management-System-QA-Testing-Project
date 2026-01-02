@@ -107,7 +107,7 @@ public class DoctorProfileController implements Initializable {
             alert.show();
             return false;
         }
-        if ("".equals(updateAge) || updateAge == null) {
+        if ("".equals(updateAge) ) {
             Alert alert = new Alert(Alert.AlertType.WARNING, "Please provide your Age!", ButtonType.OK);
             alert.show();
             return false;

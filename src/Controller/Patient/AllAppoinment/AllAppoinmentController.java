@@ -45,7 +45,7 @@ public class AllAppoinmentController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+
         doctorName.setCellValueFactory(new PropertyValueFactory<>("DoctorName"));
         doctorID.setCellValueFactory(new PropertyValueFactory<>("DoctorID"));   //here doctorID connected to tablecolumn and DoctorID are connected with AllAppoinmentController Class Object
         yourProblem.setCellValueFactory(new PropertyValueFactory<>("Problem"));

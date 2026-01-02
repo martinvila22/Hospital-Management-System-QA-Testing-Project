@@ -65,12 +65,15 @@ public class RegisterController implements Initializable {
 
 
 
-        private static final Pattern EMAIL_PATTERN = Pattern.compile(
-                "^[A-Za-z0-9_+&*-]+(?:\\.[A-Za-z0-9_+&*-]+)?@" +
-                        "[A-Za-z0-9-]+(?:\\.[A-Za-z0-9-]+)*\\.[A-Za-z]{2,7}$"
-        );
+    private static final Pattern EMAIL_PATTERN = Pattern.compile(
+            "^[A-Za-z0-9_+&*-]+(\\.[A-Za-z0-9_+&*-]+)*" +
+                    "@" +
+                    "[A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*" +
+                    "\\.[A-Za-z]{2,7}$"
+    );
 
-        public static boolean isValidEmail(String email) {
+
+    public static boolean isValidEmail(String email) {
             return email != null && EMAIL_PATTERN.matcher(email).matches();
         }
 
@@ -83,7 +86,7 @@ public class RegisterController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         showError(faildmsg.getText());
-        // TODO
+        // need to be completed
     }
 
 }
