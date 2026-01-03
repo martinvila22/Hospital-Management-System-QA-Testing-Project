@@ -143,7 +143,7 @@ public class MYSQLDatabaseOp {
                     //closing the window after successfully login
                     Parent root = FXMLLoader.load(getClass().getResource("/View/Patient/BaseUI.fxml"));
                     Scene change = new Scene(root);
-                    Main.getPrimaryStage().setScene(change);
+                    Main.getStageRef.setScene(change);
                 } else {
                     LoginController.showMessage(("Wrong Email or Password"));
                 }
@@ -222,7 +222,7 @@ public class MYSQLDatabaseOp {
                 Main.setRole("user");
                 Parent root = FXMLLoader.load(getClass().getResource("/View/Patient/BaseUI.fxml"));
                 Scene change = new Scene(root);
-                Main.getPrimaryStage().setScene(change);
+                Main.getStageRef.setScene(change);
                 userDataFileUpdaste(email,password);
             } else {
                 RegisterController.showError("Registration Fainld!");

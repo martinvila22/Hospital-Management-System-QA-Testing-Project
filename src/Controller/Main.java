@@ -5,8 +5,8 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.StandardOpenOption;
 import java.util.Scanner;
+import com.sun.javafx.stage.EmbeddedWindow;
 import javafx.application.Application;
-import javafx.embed.swing.JFXPanel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +19,7 @@ import java.nio.charset.StandardCharsets;
 public class Main extends Application {
 
 
-    private static Stage stage;
+    public static EmbeddedWindow getStageRef;
     private static String role = "";
     private static String imgURL = "";
     private static String doctorID = "";
@@ -75,10 +75,6 @@ public class Main extends Application {
         }
     }
 
-
-    public  Stage getPrimaryStage() {
-        return this.stage;
-    }
     public static String getRole() {return role;}
     public static void setRole(String role1) {role = role1;}
     public static String getDoctorID() {return doctorID;}
@@ -91,8 +87,6 @@ public class Main extends Application {
 
     //database testing
     public void start(Stage primaryStage) throws Exception {
-        this.stage = primaryStage;
-
         Parent root = FXMLLoader.load(getClass().getResource("/View/Auth/Base.fxml"));
         Scene scene = new Scene(root);
 
